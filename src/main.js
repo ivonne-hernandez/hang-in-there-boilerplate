@@ -21,6 +21,14 @@ var nevermindTakeMeBackButton = document.querySelector('.show-main');
 
 var backToMainButton = document.querySelector('.back-to-main');
 
+var showMyPosterButton = document.querySelector('.make-poster');
+
+var posterImageURLInput = document.querySelector('#poster-image-url');
+
+var posterTitleInput = document.querySelector('#poster-title');
+
+var posterQuoteInput = document.querySelector('#poster-quote');
+
 // we've provided you with some data to work with 👇
 var images = [
   "./assets/bees.jpg",
@@ -136,6 +144,12 @@ nevermindTakeMeBackButton.addEventListener('click', takeBackToMainPosterSection)
 
 backToMainButton.addEventListener('click', takeBackToMainPosterSection);
 
+showMyPosterButton.addEventListener('click', function(event) {
+  event.preventDefault();
+  showMyCustomPoster();
+});
+
+
 // functions and event handlers go here 👇
 // (we've provided one for you to get you started)!
 function getRandomIndex(array) {
@@ -174,4 +188,13 @@ function takeBackToMainPosterSection() {
   mainPosterSection.classList.remove('hidden');
   posterFormSection.classList.add('hidden');
   savedPostersSection.classList.add('hidden');
+}
+
+function showMyCustomPoster() {
+  currentPoster = new Poster(posterImageURLInput.value, posterTitleInput.value, posterQuoteInput.value);
+  takeBackToMainPosterSection();
+  displayPoster();
+  images.push(posterImageURLInput.value);
+  titles.push(posterTitleInput.value);
+  quotes.push(posterQuoteInput.value);
 }
