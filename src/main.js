@@ -194,4 +194,7 @@ function showMyCustomPoster() {
   currentPoster = new Poster(posterImageURLInput.value, posterTitleInput.value, posterQuoteInput.value);
   takeBackToMainPosterSection();
   displayPoster();
+  images.push(posterImageURLInput.value);
+  titles.push(posterTitleInput.value);
+  quotes.push(posterQuoteInput.value);
 }
