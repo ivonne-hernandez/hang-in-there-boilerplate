@@ -7,6 +7,20 @@ var imageURL = document.querySelector('.poster-img');
 
 var randomPosterButton = document.querySelector('.show-random');
 
+var makePosterButton = document.querySelector('.show-form');
+
+var mainPosterSection = document.querySelector('.main-poster');
+
+var posterFormSection = document.querySelector('.poster-form');
+
+var showSavedPostersButton = document.querySelector('.show-saved');
+
+var savedPostersSection = document.querySelector('.saved-posters');
+
+var nevermindTakeMeBackButton = document.querySelector('.show-main');
+
+var backToMainButton = document.querySelector('.back-to-main');
+
 // we've provided you with some data to work with 👇
 var images = [
   "./assets/bees.jpg",
@@ -109,12 +123,18 @@ var savedPosters = [];
 var currentPoster;
 
 // event listeners go here 👇
-function showAnotherPoster() {
-  randomPosterButton.addEventListener('click', function() {
-    createRandomPoster();
-    displayPoster();
-  });
-}
+randomPosterButton.addEventListener('click', function() {
+  createRandomPoster();
+  displayPoster();
+});
+
+makePosterButton.addEventListener('click', showHiddenPosterForm);
+
+showSavedPostersButton.addEventListener('click', showSavedPosters);
+
+nevermindTakeMeBackButton.addEventListener('click', takeBackToMainPosterSection);
+
+backToMainButton.addEventListener('click', takeBackToMainPosterSection);
 
 // functions and event handlers go here 👇
 // (we've provided one for you to get you started)!
@@ -139,4 +159,19 @@ function displayPoster() {
 }
 
 displayPoster();
-showAnotherPoster();
+
+function showHiddenPosterForm() {
+  mainPosterSection.classList.add('hidden');
+  posterFormSection.classList.remove('hidden');
+}
+
+function showSavedPosters() {
+  mainPosterSection.classList.add('hidden');
+  savedPostersSection.classList.remove('hidden');
+}
+
+function takeBackToMainPosterSection() {
+  mainPosterSection.classList.remove('hidden');
+  posterFormSection.classList.add('hidden');
+  savedPostersSection.classList.add('hidden');
+}
