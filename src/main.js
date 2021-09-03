@@ -29,6 +29,9 @@ var posterTitleInput = document.querySelector('#poster-title');
 
 var posterQuoteInput = document.querySelector('#poster-quote');
 
+var saveThisPosterButton = document.querySelector('.save-poster');
+
+
 // we've provided you with some data to work with 👇
 var images = [
   "./assets/bees.jpg",
@@ -149,6 +152,7 @@ showMyPosterButton.addEventListener('click', function(event) {
   showMyCustomPoster();
 });
 
+saveThisPosterButton.addEventListener('click', addToSavedPosters);
 
 // functions and event handlers go here 👇
 // (we've provided one for you to get you started)!
@@ -197,4 +201,9 @@ function showMyCustomPoster() {
   images.push(posterImageURLInput.value);
   titles.push(posterTitleInput.value);
   quotes.push(posterQuoteInput.value);
+}
+
+function addToSavedPosters() {
+  savedPosters.push(currentPoster);
+  console.log(`saved posters array:`, savedPosters);
 }
