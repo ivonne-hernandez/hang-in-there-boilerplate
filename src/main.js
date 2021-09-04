@@ -204,6 +204,7 @@ function showMyCustomPoster() {
 }
 
 function addToSavedPosters() {
-  savedPosters.push(currentPoster);
-  console.log(`saved posters array:`, savedPosters);
+  if(!savedPosters.includes(currentPoster)) {
+    savedPosters.push(currentPoster);
+  }
 }
