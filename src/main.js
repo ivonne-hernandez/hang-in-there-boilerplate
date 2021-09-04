@@ -31,6 +31,7 @@ var posterQuoteInput = document.querySelector('#poster-quote');
 
 var saveThisPosterButton = document.querySelector('.save-poster');
 
+var savedPostersGrid = document.querySelector('.saved-posters-grid');
 
 // we've provided you with some data to work with 👇
 var images = [
@@ -186,6 +187,17 @@ function showHiddenPosterForm() {
 function showSavedPosters() {
   mainPosterSection.classList.add('hidden');
   savedPostersSection.classList.remove('hidden');
+  savedPostersGrid.innerHTML = '';
+
+  for (var i = 0; i < savedPosters.length; i++) {
+    savedPostersGrid.innerHTML += `
+      <div class='mini-poster'>
+        <img class='poster-img' src=${savedPosters[i].imageURL}>
+        <h2 class='poster-title'>${savedPosters[i].title}</h2>
+        <h4 class='poster-quote'>${savedPosters[i].quote}</h4>
+      </div>`
+  }
+
 }
 
 function takeBackToMainPosterSection() {
@@ -204,7 +216,12 @@ function showMyCustomPoster() {
 }
 
 function addToSavedPosters() {
-  if(!savedPosters.includes(currentPoster)) {
+  if (!savedPosters.includes(currentPoster)) {
     savedPosters.push(currentPoster);
   }
 }
+
+
+// All the posters in the savedPosters array should be displayed in the saved posters grid section
+
+//
