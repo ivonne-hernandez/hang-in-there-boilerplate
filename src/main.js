@@ -1,41 +1,25 @@
 // query selector variables go here 👇
 var title = document.querySelector('.poster-title');
-
 var quote = document.querySelector('.poster-quote');
-
 var imageURL = document.querySelector('.poster-img');
 
 var randomPosterButton = document.querySelector('.show-random');
-
 var makePosterButton = document.querySelector('.show-form');
-
-var mainPosterSection = document.querySelector('.main-poster');
-
-var posterFormSection = document.querySelector('.poster-form');
-
 var showSavedPostersButton = document.querySelector('.show-saved');
-
-var savedPostersSection = document.querySelector('.saved-posters');
-
 var nevermindTakeMeBackButton = document.querySelector('.show-main');
-
 var backToMainButton = document.querySelector('.back-to-main');
-
 var showMyPosterButton = document.querySelector('.make-poster');
-
-var posterImageURLInput = document.querySelector('#poster-image-url');
-
-var posterTitleInput = document.querySelector('#poster-title');
-
-var posterQuoteInput = document.querySelector('#poster-quote');
-
 var saveThisPosterButton = document.querySelector('.save-poster');
 
+var mainPosterSection = document.querySelector('.main-poster');
+var posterFormSection = document.querySelector('.poster-form');
+var savedPostersSection = document.querySelector('.saved-posters');
+
+var posterImageURLInput = document.querySelector('#poster-image-url');
+var posterTitleInput = document.querySelector('#poster-title');
+var posterQuoteInput = document.querySelector('#poster-quote');
+
 var savedPostersGrid = document.querySelector('.saved-posters-grid');
-
-// var selectedPoster = document.getAttribute('.mini-poster');
-// This query selector should be selecting the poster the user double clicked.
-
 
 // we've provided you with some data to work with 👇
 var images = [
@@ -160,7 +144,6 @@ showMyPosterButton.addEventListener('click', function(event) {
 saveThisPosterButton.addEventListener('click', addToSavedPosters);
 
 savedPostersGrid.addEventListener('dblclick', deleteSavedPoster);
-//This event listener should trigger the delete saved poster upon a dbl click
 
 // functions and event handlers go here 👇
 // (we've provided one for you to get you started)!
@@ -172,19 +155,14 @@ function createRandomPoster() {
   var imageURL = images[getRandomIndex(images)];
   var title = titles[getRandomIndex(titles)];
   var quote = quotes[getRandomIndex(quotes)];
-
   currentPoster = new Poster(imageURL, title, quote);
 }
-
-createRandomPoster();
 
 function displayPoster() {
   title.innerText = currentPoster.title;
   quote.innerText = currentPoster.quote;
   imageURL.src = currentPoster.imageURL;
 }
-
-displayPoster();
 
 function showHiddenPosterForm() {
   mainPosterSection.classList.add('hidden');
@@ -237,8 +215,5 @@ function deleteSavedPoster() {
   showSavedPosters();
 }
 
-// Select saved poster image with a double click
-
-// From the saved posters view, if a user double clicks a saved poster, it will be deleted
-// onclick functionality should not be used in any HTML code - all functionality should be through JavaScript.
-// Hint: How will you update the data model to achieve this?
+createRandomPoster();
+displayPoster();
