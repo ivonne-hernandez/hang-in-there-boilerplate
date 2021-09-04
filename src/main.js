@@ -33,6 +33,10 @@ var saveThisPosterButton = document.querySelector('.save-poster');
 
 var savedPostersGrid = document.querySelector('.saved-posters-grid');
 
+// var selectedPoster = document.getAttribute('.mini-poster');
+// This query selector should be selecting the poster the user double clicked.
+
+
 // we've provided you with some data to work with 👇
 var images = [
   "./assets/bees.jpg",
@@ -155,6 +159,9 @@ showMyPosterButton.addEventListener('click', function(event) {
 
 saveThisPosterButton.addEventListener('click', addToSavedPosters);
 
+savedPostersGrid.addEventListener('dblclick', deleteSavedPoster);
+//This event listener should trigger the delete saved poster upon a dbl click
+
 // functions and event handlers go here 👇
 // (we've provided one for you to get you started)!
 function getRandomIndex(array) {
@@ -191,13 +198,12 @@ function showSavedPosters() {
 
   for (var i = 0; i < savedPosters.length; i++) {
     savedPostersGrid.innerHTML += `
-      <div class='mini-poster'>
+      <div class='mini-poster' id=${savedPosters[i].id}>
         <img class='poster-img' src=${savedPosters[i].imageURL}>
         <h2 class='poster-title'>${savedPosters[i].title}</h2>
         <h4 class='poster-quote'>${savedPosters[i].quote}</h4>
       </div>`
   }
-
 }
 
 function takeBackToMainPosterSection() {
@@ -221,7 +227,18 @@ function addToSavedPosters() {
   }
 }
 
+function deleteSavedPoster() {
+  var id = Number(event.target.closest('.mini-poster').id);
+  for (var i = 0; i < savedPosters.length; i++) {
+    if (savedPosters[i].id === id) {
+      savedPosters.splice(i, 1);
+    }
+  }
+  showSavedPosters();
+}
 
-// All the posters in the savedPosters array should be displayed in the saved posters grid section
+// Select saved poster image with a double click
 
-//
+// From the saved posters view, if a user double clicks a saved poster, it will be deleted
+// onclick functionality should not be used in any HTML code - all functionality should be through JavaScript.
+// Hint: How will you update the data model to achieve this?
