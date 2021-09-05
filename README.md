@@ -1,18 +1,14 @@
-# Hang In There
+# [Hang In There Buddy - Poster Generator](https://ivonne-hernandez.github.io/hang-in-there-buddy/)
+Hang in there buddy is an application that generates random motivational posters. Users can create their own posters using their own image, title and quote. Users also have the ability to save or delete a poster on the saved posters page.
 
-A boilerplate repo. 
+## How to Use the App:
 
-## Set Up
+- Go to [hang-in-there-buddy](https://ivonne-hernandez.github.io/hang-in-there-buddy/)
 
-1. One teammate: fork this repository
-2. Clone down your new, forked repo
-3. cd into the repository
-4. Open it in your text editor
-5. Add all project partners and your assigned instructor as collaborators on the repository
+- The main page will display a randomly generated motivational poster.
 
-Project spec & rubric can be found [here](https://frontend.turing.io/projects/module-1/hang-in-there.html)
+- You can click on the Show Another Random Poster button to generate a new motivational poster.
 
-To view your project:
+- If you like the poster, you can click on the Save This Poster button which will save the selected poster on the Show Saved Posters page. You can access the Saved Posters page by clicking on the Show Saved Posters button. If there is a poster that is no longer needed, you can delete it by double-clicking on it.
 
-1. In your terminal, navigate to your project repo
-2. Run the command `open index.html`
+- If you prefer to create your own poster, you can click on the Make Your Own Poster button. This button will take you to the Create your own motivational poster page. Users can then populate the form using their own Image url, motivational title and quote. Upon clicking the Show my poster button, users are able to view their custom poster on the main page.
